@@ -1,0 +1,38 @@
+# Node.js dependencies and logs
+node_modules/
+npm-debug.log*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Build and coverage artifacts
+apps/backend/dist/
+apps/frontend/dist/
+apps/backend/coverage/
+apps/frontend/coverage/
+
+# Local generated Prisma migrations (kept out of VCS in this repo)
+apps/backend/prisma/migrations/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+venv/
+env/
+.venv/
+.venv-*/
+
+# Local temporary files
+*.tmp
+*.swp
+.DS_Store
+
+# Local report/output folders
+reports/
+output/
+data/

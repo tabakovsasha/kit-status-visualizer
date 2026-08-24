@@ -1,0 +1,1791 @@
+{
+    "success": true,
+    "result": [
+        {
+            "id": 2511,
+            "acd_queue_id": 2641,
+            "acd_queue_name": "queue_name_20260616052554199",
+            "acd_queue_title": "Тестовая очередь",
+            "acd_max_conversations": null,
+            "call_agent_selection": "MAX_WAITING_TIME",
+            "domain_id": 574,
+            "fallback_agent_selection": "NONE",
+            "call_task_selection": "MAX_PRIORITY",
+            "description": "",
+            "create_date": "2026-06-16 05:25:54",
+            "created_by": 1159,
+            "edit_date": "2026-07-13 13:05:04",
+            "edited_by": 1159,
+            "delete_date": null,
+            "deleted_by": null,
+            "deleted": false,
+            "im_agent_selection": "MAX_WAITING_TIME",
+            "im_task_selection": "MAX_PRIORITY",
+            "call_max_waiting_time": 60,
+            "call_max_queue_size": 1000,
+            "im_max_waiting_time": 60,
+            "im_max_queue_size": 1000,
+            "acd_establish_timeout_sec": 120,
+            "acd_reply_timeout_sec": 300,
+            "max_simultaneous_conversations": 5,
+            "max_autoservice_time_enabled": false,
+            "max_autoservice_time_sec": 0,
+            "call_auto_answer": false,
+            "agents_can_decline_calls": true,
+            "acd_client_timeout_sec": 3600,
+            "agent_campaign_id": null,
+            "queue_dialing_media_enabled": null,
+            "queue_dialing_media_id": null,
+            "call_sl_waiting_time_sec": 20,
+            "im_sl_waiting_time_sec": 20,
+            "priority": 10,
+            "agents_can_end_calls": true,
+            "hold_notification_settings_overridden": false,
+            "hold_notification_enabled": true,
+            "hold_notification_time_sec": 30,
+            "max_operator_reaction_time_sec": 40,
+            "campaign_id": null,
+            "scripting_scenario_id": null,
+            "drop_call_if_no_operators": true,
+            "users": [
+                {
+                    "id": 1159,
+                    "username": "admin",
+                    "email": "daniyel.orazbekov@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": null,
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T14:01:21",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T14:01:21",
+                    "role_id": 2,
+                    "skills": []
+                }
+            ],
+            "autoreplies": {
+                "agents": {
+                    "welcome_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}. Мне потребуется немного времени на подготовку ответа."
+                        ]
+                    },
+                    "after_transfer_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}, теперь я буду вам помогать. Мне потребуется немного времени на подготовку ответа. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "answer_timeout_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Чтобы ответить на ваш запрос, потребуется немного больше времени. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "closed_by_operator": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "general": {
+                    "closed_by_timeout": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "queue": {
+                    "added_to_queue": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Спасибо за обращение. Скоро вам поможет один из наших операторов."
+                        ]
+                    },
+                    "all_agents_offline": {
+                        "enabled": true,
+                        "messages": [
+                            "Здравствуйте! К сожалению, все операторы заняты. Ваш запрос будет обработан первым освободившимся оператором."
+                        ]
+                    }
+                }
+            },
+            "number_extension": null
+        },
+        {
+            "id": 2508,
+            "acd_queue_id": 2638,
+            "acd_queue_name": "queue_name_20260615215831936",
+            "acd_queue_title": "Розничная очередь",
+            "acd_max_conversations": null,
+            "call_agent_selection": "MOST_QUALIFIED",
+            "domain_id": 574,
+            "fallback_agent_selection": "NONE",
+            "call_task_selection": "MAX_PRIORITY",
+            "description": "",
+            "create_date": "2026-06-15 21:58:31",
+            "created_by": 1159,
+            "edit_date": "2026-07-06 14:39:28",
+            "edited_by": 1159,
+            "delete_date": null,
+            "deleted_by": null,
+            "deleted": false,
+            "im_agent_selection": "MAX_WAITING_TIME",
+            "im_task_selection": "MAX_PRIORITY",
+            "call_max_waiting_time": 3,
+            "call_max_queue_size": 1000,
+            "im_max_waiting_time": 60,
+            "im_max_queue_size": 1000,
+            "acd_establish_timeout_sec": 120,
+            "acd_reply_timeout_sec": 300,
+            "max_simultaneous_conversations": 5,
+            "max_autoservice_time_enabled": true,
+            "max_autoservice_time_sec": 120,
+            "call_auto_answer": false,
+            "agents_can_decline_calls": true,
+            "acd_client_timeout_sec": 3600,
+            "agent_campaign_id": null,
+            "queue_dialing_media_enabled": null,
+            "queue_dialing_media_id": null,
+            "call_sl_waiting_time_sec": 20,
+            "im_sl_waiting_time_sec": 20,
+            "priority": 10,
+            "agents_can_end_calls": true,
+            "hold_notification_settings_overridden": false,
+            "hold_notification_enabled": true,
+            "hold_notification_time_sec": 30,
+            "max_operator_reaction_time_sec": 40,
+            "campaign_id": null,
+            "scripting_scenario_id": null,
+            "drop_call_if_no_operators": true,
+            "users": [
+                {
+                    "id": 1364,
+                    "username": "user-1228",
+                    "email": "yuliya.guryeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Гурьева Юлия Романовна",
+                    "call_status": "DND",
+                    "call_status_change_time": "2026-07-17T13:00:30",
+                    "im_status": "DND",
+                    "im_status_change_time": "2026-07-17T13:00:30",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1446,
+                    "username": "user-1322",
+                    "email": "a.kerdemelidi@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кердемелиди Александр Вячеславович",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T19:32:35",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T19:32:35",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1217,
+                    "username": "user-1018",
+                    "email": "yersyn.mulyukov@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Мулюков Ерсын Ринатович",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T19:32:36",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T19:32:36",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1219,
+                    "username": "user-499",
+                    "email": "karina.mamutova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Мамутова Карина Жоллыбай Кизи",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1223,
+                    "username": "user-501",
+                    "email": "gulzara.imenova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Именова Гулзара Асановна",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T12:53:46",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T12:53:46",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1229,
+                    "username": "user-500",
+                    "email": "kseniya.bankova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Банкова Ксения Банкова",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1232,
+                    "username": "user-502",
+                    "email": "anastassiya.kogay@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Когай Анастасия Дмитриевна",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T14:08:09",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T14:08:09",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1291,
+                    "username": "user-1114",
+                    "email": "aitore.pernebek@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Пернебек Айторе Нурмаханулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:07:50",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:07:50",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1342,
+                    "username": "user-1181",
+                    "email": "marlen.akimkhan@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Акимхан Марлен Уланович",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-03T05:30:52",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-03T05:30:52",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1366,
+                    "username": "user-1230",
+                    "email": "malika.saparova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Сапарова Малика Руслановна",
+                    "call_status": "BANNED",
+                    "call_status_change_time": "2026-07-17T13:49:50",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T12:27:12",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1367,
+                    "username": "user-1232",
+                    "email": "amina.shamshetova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Шамшетова Амина Ердаулетовна",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:05:19",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:05:19",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1222,
+                    "username": "user-578",
+                    "email": "nurshat.kydyrbayeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кыдырбаева Нуршат Калиевна",
+                    "call_status": "DND",
+                    "call_status_change_time": "2026-07-17T12:52:16",
+                    "im_status": "DND",
+                    "im_status_change_time": "2026-07-17T12:52:16",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1365,
+                    "username": "user-1231",
+                    "email": "ayazhan.yelbolsyn@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Елболсын Аяжан Беделханқызы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:05:27",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:05:27",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1380,
+                    "username": "user-1093",
+                    "email": "alessya.gluchshenko@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Глущенко Алеся Николаевна",
+                    "call_status": "DND",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "DND",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                }
+            ],
+            "autoreplies": {
+                "agents": {
+                    "welcome_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}. Мне потребуется немного времени на подготовку ответа."
+                        ]
+                    },
+                    "after_transfer_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}, теперь я буду вам помогать. Мне потребуется немного времени на подготовку ответа. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "answer_timeout_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Чтобы ответить на ваш запрос, потребуется немного больше времени. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "closed_by_operator": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "general": {
+                    "closed_by_timeout": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "queue": {
+                    "added_to_queue": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Спасибо за обращение. Скоро вам поможет один из наших операторов."
+                        ]
+                    },
+                    "all_agents_offline": {
+                        "enabled": true,
+                        "messages": [
+                            "Здравствуйте! К сожалению, все операторы заняты. Ваш запрос будет обработан первым освободившимся оператором."
+                        ]
+                    }
+                }
+            },
+            "number_extension": null
+        },
+        {
+            "id": 2494,
+            "acd_queue_id": 2624,
+            "acd_queue_name": "queue_name_20260611131926357",
+            "acd_queue_title": "Корпоративная очередь",
+            "acd_max_conversations": null,
+            "call_agent_selection": "MOST_QUALIFIED",
+            "domain_id": 574,
+            "fallback_agent_selection": "NONE",
+            "call_task_selection": "MAX_PRIORITY",
+            "description": "",
+            "create_date": "2026-06-11 13:19:26",
+            "created_by": 1159,
+            "edit_date": "2026-07-06 14:41:56",
+            "edited_by": 1159,
+            "delete_date": null,
+            "deleted_by": null,
+            "deleted": false,
+            "im_agent_selection": "MAX_WAITING_TIME",
+            "im_task_selection": "MAX_PRIORITY",
+            "call_max_waiting_time": 3,
+            "call_max_queue_size": 1000,
+            "im_max_waiting_time": 60,
+            "im_max_queue_size": 1000,
+            "acd_establish_timeout_sec": 120,
+            "acd_reply_timeout_sec": 300,
+            "max_simultaneous_conversations": 5,
+            "max_autoservice_time_enabled": true,
+            "max_autoservice_time_sec": 120,
+            "call_auto_answer": false,
+            "agents_can_decline_calls": true,
+            "acd_client_timeout_sec": 3600,
+            "agent_campaign_id": null,
+            "queue_dialing_media_enabled": null,
+            "queue_dialing_media_id": null,
+            "call_sl_waiting_time_sec": 20,
+            "im_sl_waiting_time_sec": 20,
+            "priority": 10,
+            "agents_can_end_calls": true,
+            "hold_notification_settings_overridden": false,
+            "hold_notification_enabled": true,
+            "hold_notification_time_sec": 30,
+            "max_operator_reaction_time_sec": 40,
+            "campaign_id": null,
+            "scripting_scenario_id": null,
+            "drop_call_if_no_operators": true,
+            "users": [
+                {
+                    "id": 1216,
+                    "username": "user-1026",
+                    "email": "aiym.sarzhan@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Саржан Айым Есболатқызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1220,
+                    "username": "user-1014",
+                    "email": "yernar.nurgaliyev@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нургалиев Ернар Нурғалиұлы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-16T12:48:20",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-16T12:48:20",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1221,
+                    "username": "user-1017",
+                    "email": "diana.sagimbaeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Сагимбаева Диана Кайраткызы",
+                    "call_status": "READY",
+                    "call_status_change_time": "2026-07-17T19:06:02",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T09:53:47",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1224,
+                    "username": "user-579",
+                    "email": "kamilla.yelemessova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Елемесова Камилла Еркынкызы",
+                    "call_status": "CUSTOM_5",
+                    "call_status_change_time": "2026-07-17T07:53:40",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T05:40:37",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1228,
+                    "username": "user-581",
+                    "email": "angsar.kudaibergen@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кудайберген Ансар Русланулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:06:35",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:06:35",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1230,
+                    "username": "user-583",
+                    "email": "nurgaziz.nuken@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нукен Нургазиз Галымулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T12:58:00",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T12:58:00",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1231,
+                    "username": "user-580",
+                    "email": "lazzat.akhmetova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Ахметова Лаззат Ибрагимовна",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:38",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1270,
+                    "username": "user-577",
+                    "email": "madina.nurgazinova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нургазинова Мадина Адильбеккызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1340,
+                    "username": "user-1024",
+                    "email": "damira.yeszhanova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Есжанова Дамира Мухтаркызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                }
+            ],
+            "autoreplies": {
+                "agents": {
+                    "welcome_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}. Мне потребуется немного времени на подготовку ответа."
+                        ]
+                    },
+                    "after_transfer_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}, теперь я буду вам помогать. Мне потребуется немного времени на подготовку ответа. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "answer_timeout_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Чтобы ответить на ваш запрос, потребуется немного больше времени. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "closed_by_operator": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "general": {
+                    "closed_by_timeout": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "queue": {
+                    "added_to_queue": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Спасибо за обращение. Скоро вам поможет один из наших операторов."
+                        ]
+                    },
+                    "all_agents_offline": {
+                        "enabled": true,
+                        "messages": [
+                            "Здравствуйте! К сожалению, все операторы заняты. Ваш запрос будет обработан первым освободившимся оператором."
+                        ]
+                    }
+                }
+            },
+            "number_extension": null
+        },
+        {
+            "id": 2167,
+            "acd_queue_id": 2265,
+            "acd_queue_name": "queue_name_1774876545",
+            "acd_queue_title": "Очередь для входящих звонков",
+            "acd_max_conversations": null,
+            "call_agent_selection": "MAX_WAITING_TIME",
+            "domain_id": 574,
+            "fallback_agent_selection": "NONE",
+            "call_task_selection": "MAX_PRIORITY",
+            "description": "",
+            "create_date": "2026-03-30 13:15:45",
+            "created_by": 1159,
+            "edit_date": "2026-06-17 08:34:10",
+            "edited_by": 1159,
+            "delete_date": null,
+            "deleted_by": null,
+            "deleted": false,
+            "im_agent_selection": "MAX_WAITING_TIME",
+            "im_task_selection": "MAX_PRIORITY",
+            "call_max_waiting_time": 60,
+            "call_max_queue_size": 1000,
+            "im_max_waiting_time": 60,
+            "im_max_queue_size": 1000,
+            "acd_establish_timeout_sec": 120,
+            "acd_reply_timeout_sec": 300,
+            "max_simultaneous_conversations": 5,
+            "max_autoservice_time_enabled": true,
+            "max_autoservice_time_sec": 120,
+            "call_auto_answer": false,
+            "agents_can_decline_calls": true,
+            "acd_client_timeout_sec": 3600,
+            "agent_campaign_id": null,
+            "queue_dialing_media_enabled": null,
+            "queue_dialing_media_id": null,
+            "call_sl_waiting_time_sec": 20,
+            "im_sl_waiting_time_sec": 20,
+            "priority": 10,
+            "agents_can_end_calls": true,
+            "hold_notification_settings_overridden": false,
+            "hold_notification_enabled": true,
+            "hold_notification_time_sec": 30,
+            "max_operator_reaction_time_sec": 40,
+            "campaign_id": null,
+            "scripting_scenario_id": null,
+            "drop_call_if_no_operators": true,
+            "users": [
+                {
+                    "id": 1216,
+                    "username": "user-1026",
+                    "email": "aiym.sarzhan@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Саржан Айым Есболатқызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1217,
+                    "username": "user-1018",
+                    "email": "yersyn.mulyukov@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Мулюков Ерсын Ринатович",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T19:32:36",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T19:32:36",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1219,
+                    "username": "user-499",
+                    "email": "karina.mamutova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Мамутова Карина Жоллыбай Кизи",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1220,
+                    "username": "user-1014",
+                    "email": "yernar.nurgaliyev@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нургалиев Ернар Нурғалиұлы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-16T12:48:20",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-16T12:48:20",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1221,
+                    "username": "user-1017",
+                    "email": "diana.sagimbaeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Сагимбаева Диана Кайраткызы",
+                    "call_status": "READY",
+                    "call_status_change_time": "2026-07-17T19:06:02",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T09:53:47",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1222,
+                    "username": "user-578",
+                    "email": "nurshat.kydyrbayeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кыдырбаева Нуршат Калиевна",
+                    "call_status": "DND",
+                    "call_status_change_time": "2026-07-17T12:52:16",
+                    "im_status": "DND",
+                    "im_status_change_time": "2026-07-17T12:52:16",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1223,
+                    "username": "user-501",
+                    "email": "gulzara.imenova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Именова Гулзара Асановна",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T12:53:46",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T12:53:46",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1224,
+                    "username": "user-579",
+                    "email": "kamilla.yelemessova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Елемесова Камилла Еркынкызы",
+                    "call_status": "CUSTOM_5",
+                    "call_status_change_time": "2026-07-17T07:53:40",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T05:40:37",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1228,
+                    "username": "user-581",
+                    "email": "angsar.kudaibergen@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кудайберген Ансар Русланулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:06:35",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:06:35",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1229,
+                    "username": "user-500",
+                    "email": "kseniya.bankova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Банкова Ксения Банкова",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1230,
+                    "username": "user-583",
+                    "email": "nurgaziz.nuken@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нукен Нургазиз Галымулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T12:58:00",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T12:58:00",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1231,
+                    "username": "user-580",
+                    "email": "lazzat.akhmetova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Ахметова Лаззат Ибрагимовна",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:38",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1232,
+                    "username": "user-502",
+                    "email": "anastassiya.kogay@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Когай Анастасия Дмитриевна",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T14:08:09",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T14:08:09",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1270,
+                    "username": "user-577",
+                    "email": "madina.nurgazinova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нургазинова Мадина Адильбеккызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                }
+            ],
+            "autoreplies": {
+                "agents": {
+                    "welcome_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}. Мне потребуется немного времени на подготовку ответа."
+                        ]
+                    },
+                    "after_transfer_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}, теперь я буду вам помогать. Мне потребуется немного времени на подготовку ответа. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "answer_timeout_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Чтобы ответить на ваш запрос, потребуется немного больше времени. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "closed_by_operator": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "general": {
+                    "closed_by_timeout": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "queue": {
+                    "added_to_queue": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Спасибо за обращение. Скоро вам поможет один из наших операторов."
+                        ]
+                    },
+                    "all_agents_offline": {
+                        "enabled": true,
+                        "messages": [
+                            "Здравствуйте! К сожалению, все операторы заняты. Ваш запрос будет обработан первым освободившимся оператором."
+                        ]
+                    }
+                }
+            },
+            "number_extension": {
+                "id": 470,
+                "number": "2",
+                "active": true
+            }
+        },
+        {
+            "id": 2125,
+            "acd_queue_id": 2223,
+            "acd_queue_name": "queue_name_1773242586",
+            "acd_queue_title": "Общая",
+            "acd_max_conversations": null,
+            "call_agent_selection": "MOST_QUALIFIED",
+            "domain_id": 574,
+            "fallback_agent_selection": "NONE",
+            "call_task_selection": "MAX_PRIORITY",
+            "description": "",
+            "create_date": "2026-03-11 15:23:06",
+            "created_by": 1159,
+            "edit_date": "2026-04-06 09:38:11",
+            "edited_by": 1159,
+            "delete_date": null,
+            "deleted_by": null,
+            "deleted": false,
+            "im_agent_selection": "MAX_WAITING_TIME",
+            "im_task_selection": "MAX_PRIORITY",
+            "call_max_waiting_time": 3,
+            "call_max_queue_size": 1000,
+            "im_max_waiting_time": 60,
+            "im_max_queue_size": 1000,
+            "acd_establish_timeout_sec": 120,
+            "acd_reply_timeout_sec": 300,
+            "max_simultaneous_conversations": 5,
+            "max_autoservice_time_enabled": true,
+            "max_autoservice_time_sec": 120,
+            "call_auto_answer": false,
+            "agents_can_decline_calls": true,
+            "acd_client_timeout_sec": 3600,
+            "agent_campaign_id": null,
+            "queue_dialing_media_enabled": null,
+            "queue_dialing_media_id": null,
+            "call_sl_waiting_time_sec": 20,
+            "im_sl_waiting_time_sec": 20,
+            "priority": 10,
+            "agents_can_end_calls": true,
+            "hold_notification_settings_overridden": false,
+            "hold_notification_enabled": true,
+            "hold_notification_time_sec": 30,
+            "max_operator_reaction_time_sec": 40,
+            "campaign_id": null,
+            "scripting_scenario_id": null,
+            "drop_call_if_no_operators": true,
+            "users": [
+                {
+                    "id": 1159,
+                    "username": "admin",
+                    "email": "daniyel.orazbekov@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": null,
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T14:01:21",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T14:01:21",
+                    "role_id": 2,
+                    "skills": []
+                },
+                {
+                    "id": 1216,
+                    "username": "user-1026",
+                    "email": "aiym.sarzhan@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Саржан Айым Есболатқызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1217,
+                    "username": "user-1018",
+                    "email": "yersyn.mulyukov@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Мулюков Ерсын Ринатович",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T19:32:36",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T19:32:36",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1219,
+                    "username": "user-499",
+                    "email": "karina.mamutova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Мамутова Карина Жоллыбай Кизи",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1220,
+                    "username": "user-1014",
+                    "email": "yernar.nurgaliyev@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нургалиев Ернар Нурғалиұлы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-16T12:48:20",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-16T12:48:20",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1221,
+                    "username": "user-1017",
+                    "email": "diana.sagimbaeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Сагимбаева Диана Кайраткызы",
+                    "call_status": "READY",
+                    "call_status_change_time": "2026-07-17T19:06:02",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T09:53:47",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1222,
+                    "username": "user-578",
+                    "email": "nurshat.kydyrbayeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кыдырбаева Нуршат Калиевна",
+                    "call_status": "DND",
+                    "call_status_change_time": "2026-07-17T12:52:16",
+                    "im_status": "DND",
+                    "im_status_change_time": "2026-07-17T12:52:16",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1223,
+                    "username": "user-501",
+                    "email": "gulzara.imenova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Именова Гулзара Асановна",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T12:53:46",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T12:53:46",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1224,
+                    "username": "user-579",
+                    "email": "kamilla.yelemessova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Елемесова Камилла Еркынкызы",
+                    "call_status": "CUSTOM_5",
+                    "call_status_change_time": "2026-07-17T07:53:40",
+                    "im_status": "READY",
+                    "im_status_change_time": "2026-07-17T05:40:37",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1228,
+                    "username": "user-581",
+                    "email": "angsar.kudaibergen@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Кудайберген Ансар Русланулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:06:35",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:06:35",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1229,
+                    "username": "user-500",
+                    "email": "kseniya.bankova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Банкова Ксения Банкова",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1230,
+                    "username": "user-583",
+                    "email": "nurgaziz.nuken@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нукен Нургазиз Галымулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T12:58:00",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T12:58:00",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1231,
+                    "username": "user-580",
+                    "email": "lazzat.akhmetova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Ахметова Лаззат Ибрагимовна",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:38",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 3,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1340,
+                    "username": "user-1024",
+                    "email": "damira.yeszhanova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Есжанова Дамира Мухтаркызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1291,
+                    "username": "user-1114",
+                    "email": "aitore.pernebek@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Пернебек Айторе Нурмаханулы",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T13:07:50",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T13:07:50",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1232,
+                    "username": "user-502",
+                    "email": "anastassiya.kogay@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Когай Анастасия Дмитриевна",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-17T14:08:09",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-17T14:08:09",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1342,
+                    "username": "user-1181",
+                    "email": "marlen.akimkhan@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Акимхан Марлен Уланович",
+                    "call_status": "OFFLINE",
+                    "call_status_change_time": "2026-07-03T05:30:52",
+                    "im_status": "OFFLINE",
+                    "im_status_change_time": "2026-07-03T05:30:52",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1364,
+                    "username": "user-1228",
+                    "email": "yuliya.guryeva@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Гурьева Юлия Романовна",
+                    "call_status": "DND",
+                    "call_status_change_time": "2026-07-17T13:00:30",
+                    "im_status": "DND",
+                    "im_status_change_time": "2026-07-17T13:00:30",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        }
+                    ]
+                },
+                {
+                    "id": 1270,
+                    "username": "user-577",
+                    "email": "madina.nurgazinova@theeurasia.kz",
+                    "avatar": "",
+                    "full_name": "Нургазинова Мадина Адильбеккызы",
+                    "call_status": "ONLINE",
+                    "call_status_change_time": "2026-07-17T19:32:39",
+                    "im_status": "ONLINE",
+                    "im_status_change_time": "2026-07-17T19:32:39",
+                    "role_id": 5,
+                    "skills": [
+                        {
+                            "skill_id": 175,
+                            "skill_level": 5,
+                            "skill_name": "Русский"
+                        },
+                        {
+                            "skill_id": 176,
+                            "skill_level": 5,
+                            "skill_name": "Казахский"
+                        }
+                    ]
+                }
+            ],
+            "autoreplies": {
+                "agents": {
+                    "welcome_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}. Мне потребуется немного времени на подготовку ответа."
+                        ]
+                    },
+                    "after_transfer_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Меня зовут {{agent_name}}, теперь я буду вам помогать. Мне потребуется немного времени на подготовку ответа. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "answer_timeout_message": {
+                        "enabled": false,
+                        "messages": [
+                            "Чтобы ответить на ваш запрос, потребуется немного больше времени. Пожалуйста, ожидайте."
+                        ]
+                    },
+                    "closed_by_operator": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "general": {
+                    "closed_by_timeout": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Чат с вами был закрыт. Пожалуйста, обратитесь к нам снова, если у вас возникнут дополнительные вопросы."
+                        ]
+                    }
+                },
+                "queue": {
+                    "added_to_queue": {
+                        "enabled": false,
+                        "messages": [
+                            "Здравствуйте! Спасибо за обращение. Скоро вам поможет один из наших операторов."
+                        ]
+                    },
+                    "all_agents_offline": {
+                        "enabled": true,
+                        "messages": [
+                            "Здравствуйте! К сожалению, все операторы заняты. Ваш запрос будет обработан первым освободившимся оператором."
+                        ]
+                    }
+                }
+            },
+            "number_extension": null
+        }
+    ],
+    "_meta": {
+        "totalCount": 5,
+        "pageCount": 1,
+        "currentPage": 1,
+        "perPage": 20
+    }
+}

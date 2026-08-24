@@ -1,0 +1,230 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String                @id @default(cuid())
+  login               String                @unique
+  passwordHash        String
+  role                UserRole              @default(USER)
+  isActive            Boolean               @default(true)
+  mustChangePassword  Boolean               @default(false)
+  lastLoginAt         DateTime?
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  sessions            UserSession[]
+  voxCredentials      VoximplantCredential[]
+  selections          SavedOperatorSelection[]
+  preferences         UserPreference[]
+  auditEvents         AuditEvent[]
+  adminAuditLogs      AuditLog[]            @relation("AuditLogAdmin")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model UserSession {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  refreshTokenHash  String
+  userAgent         String?
+  ipAddress         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  revokedAt         DateTime?
+  expiresAt         DateTime?
+  user              User     @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+
+  @@index([ownerUserId])
+  @@index([revokedAt])
+}
+
+model VoximplantCredential {
+  id                   String   @id @default(cuid())
+  ownerUserId          String
+  domain               String
+  host                 String
+  tokenCiphertext      String
+  tokenIv              String
+  tokenAuthTag         String
+  keyVersion           Int      @default(1)
+  lastVerifiedAt       DateTime?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  deletedAt            DateTime?
+  user                 User     @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  accountInfo          VoximplantAccountInfo?
+
+  @@unique([ownerUserId, domain, host])
+  @@index([ownerUserId])
+}
+
+model VoximplantAccountInfo {
+  id                   String                 @id @default(cuid())
+  ownerUserId          String
+  credentialId         String                 @unique
+  accountId            Int?
+  domainId             Int?
+  accountName          String?
+  mediaServerRegions   String[]
+  lastCheckedAt        DateTime?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  credential           VoximplantCredential   @relation(fields: [credentialId], references: [id], onDelete: Cascade)
+
+  @@index([ownerUserId])
+}
+
+model QueueSnapshot {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  accountKey        String
+  queueId           Int
+  queueTitle        String
+  payload           Json
+  refreshedAt       DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([ownerUserId, accountKey, queueId])
+  @@index([ownerUserId, refreshedAt])
+}
+
+model GroupSnapshot {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  accountKey        String
+  groupId           Int
+  groupTitle        String
+  payload           Json
+  refreshedAt       DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([ownerUserId, accountKey, groupId])
+  @@index([ownerUserId, refreshedAt])
+}
+
+model OperatorSnapshot {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  accountKey        String
+  operatorId        Int
+  fullName          String?
+  timezone          String?
+  payload           Json
+  refreshedAt       DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([ownerUserId, accountKey, operatorId])
+  @@index([ownerUserId, refreshedAt])
+}
+
+model StatusTypeSnapshot {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  accountKey        String
+  statusKey         String
+  title             String
+  color             String?
+  description       String?
+  payload           Json
+  refreshedAt       DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([ownerUserId, accountKey, statusKey])
+  @@index([ownerUserId, refreshedAt])
+}
+
+model SavedOperatorSelection {
+  id                String                     @id @default(cuid())
+  ownerUserId       String
+  name              String
+  createdAt         DateTime                   @default(now())
+  updatedAt         DateTime                   @updatedAt
+  user              User                       @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+  items             SavedOperatorSelectionItem[]
+
+  @@index([ownerUserId])
+}
+
+model SavedOperatorSelectionItem {
+  id                String                 @id @default(cuid())
+  ownerUserId       String
+  selectionId       String
+  operatorId        Int
+  createdAt         DateTime               @default(now())
+  selection          SavedOperatorSelection @relation(fields: [selectionId], references: [id], onDelete: Cascade)
+
+  @@unique([selectionId, operatorId])
+  @@index([ownerUserId])
+}
+
+model UserPreference {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  key               String
+  value             Json
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+
+  @@unique([ownerUserId, key])
+}
+
+model TimelineCacheMetadata {
+  id                String   @id @default(cuid())
+  ownerUserId       String
+  cacheKey          String   @unique
+  accountKey        String
+  operatorId        Int
+  date              String
+  timezone          String
+  periodFrom        DateTime
+  periodTo          DateTime
+  sourceHash        String
+  expiresAt         DateTime
+  createdAt         DateTime @default(now())
+
+  @@index([ownerUserId, accountKey, operatorId, date])
+  @@index([expiresAt])
+}
+
+model AuditEvent {
+  id                String   @id @default(cuid())
+  ownerUserId       String?
+  actorUserId       String?
+  eventType         String
+  severity          String   @default("info")
+  payload           Json
+  createdAt         DateTime @default(now())
+  user              User?    @relation(fields: [ownerUserId], references: [id], onDelete: SetNull)
+
+  @@index([ownerUserId, createdAt])
+  @@index([eventType, createdAt])
+}
+
+model AuditLog {
+  id                String   @id @default(cuid())
+  adminId           String
+  adminLogin        String
+  action            String
+  targetUserLogin   String?
+  details           Json?
+  ipAddress         String?
+  createdAt         DateTime @default(now())
+  admin             User     @relation("AuditLogAdmin", fields: [adminId], references: [id], onDelete: Restrict)
+
+  @@index([adminId, createdAt])
+  @@index([action, createdAt])
+  @@index([createdAt])
+}

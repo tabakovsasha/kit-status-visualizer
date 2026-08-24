@@ -1,0 +1,21 @@
+{
+  "name": "kit-operator-statuses",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Voximplant Kit operator status analytics service",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run -ws build",
+    "dev": "npm run -ws dev",
+    "lint": "npm run -ws lint",
+    "test": "npm run -ws test",
+    "typecheck": "npm run -ws typecheck",
+    "format": "npm run -ws format"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  }
+}

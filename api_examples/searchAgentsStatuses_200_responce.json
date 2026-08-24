@@ -1,0 +1,135 @@
+{
+    "success": true,
+    "result": [
+        {
+            "id": 1892,
+            "key": "OFFLINE",
+            "title": "Offline",
+            "color": "C6CACC",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 0
+        },
+        {
+            "id": 1893,
+            "key": "READY",
+            "title": "Ready (Готов)",
+            "color": "7ACC90",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 1
+        },
+        {
+            "id": 1898,
+            "key": "DIALING",
+            "title": "Dialing",
+            "color": "7C4DFF",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 2
+        },
+        {
+            "id": 1894,
+            "key": "IN_SERVICE",
+            "title": "In Service",
+            "color": "367BF5",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 3
+        },
+        {
+            "id": 1895,
+            "key": "AFTER_SERVICE",
+            "title": "Постобработка звонка",
+            "color": "78909C",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 4
+        },
+        {
+            "id": 1897,
+            "key": "BANNED",
+            "title": "Banned",
+            "color": "EA7E75",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 5
+        },
+        {
+            "id": 1891,
+            "key": "ONLINE",
+            "title": "Online (Онлайн)",
+            "color": "5FCDE5",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 100
+        },
+        {
+            "id": 1896,
+            "key": "DND",
+            "title": "Не на месте",
+            "color": "F3AA18",
+            "active": true,
+            "system": true,
+            "description": null,
+            "order": 200
+        },
+        {
+            "id": 2012,
+            "key": "CUSTOM_1",
+            "title": "Оформляю КП",
+            "color": "F3AA18",
+            "active": true,
+            "system": false,
+            "description": null,
+            "order": 201
+        },
+        {
+            "id": 2013,
+            "key": "CUSTOM_2",
+            "title": "Оформление договора",
+            "color": "F3AA18",
+            "active": true,
+            "system": false,
+            "description": "Оформление договора",
+            "order": 202
+        },
+        {
+            "id": 2015,
+            "key": "CUSTOM_4",
+            "title": "КАСКО",
+            "color": "F3AA18",
+            "active": true,
+            "system": false,
+            "description": "КАСКО",
+            "order": 203
+        },
+        {
+            "id": 2219,
+            "key": "CUSTOM_5",
+            "title": "Обед",
+            "color": "F3AA18",
+            "active": true,
+            "system": false,
+            "description": "Сотрудник ушел на обеденное время",
+            "order": 204
+        },
+        {
+            "id": 2014,
+            "key": "CUSTOM_3",
+            "title": "No Reply (розница)",
+            "color": "F3AA18",
+            "active": true,
+            "system": false,
+            "description": "No Reply статус только для розничной очереди",
+            "order": 205
+        }
+    ]
+}

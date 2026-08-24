@@ -1,0 +1,8 @@
+:80 {
+	root * /usr/share/caddy
+	encode zstd gzip
+
+	# Serve static assets directly; fallback to index.html for SPA routes.
+	try_files {path} {path}/ /index.html
+	file_server
+}

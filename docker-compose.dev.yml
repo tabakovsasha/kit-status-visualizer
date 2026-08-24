@@ -1,0 +1,7 @@
+services:
+  frontend:
+    build:
+      dockerfile: apps/frontend/Dockerfile.dev
+  backend:
+    build:
+      dockerfile: apps/backend/Dockerfile.dev

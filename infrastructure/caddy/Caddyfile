@@ -1,0 +1,45 @@
+{
+	default_sni {$CADDY_TLS_SERVER_NAME:kit.localhost}
+}
+
+(common_site) {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy geolocation=(), microphone=(), camera=()
+		X-Frame-Options DENY
+		-Server
+	}
+
+	@api path /api/* /health/* /docs*
+	handle @api {
+		reverse_proxy backend:3000 {
+			header_up X-Real-IP {remote_host}
+		}
+	}
+
+	handle {
+		reverse_proxy frontend:80 {
+			header_up X-Real-IP {remote_host}
+		}
+	}
+}
+
+# Public HTTP entrypoint: always redirect to HTTPS canonical host.
+{$CADDY_HTTP_SITE::80} {
+	redir https://{$CADDY_REDIRECT_HOST:kit.localhost}{uri} permanent
+}
+
+# HTTPS entrypoint: set CADDY_TLS_MODE=internal for local LAN certs,
+# or CADDY_TLS_MODE=<admin@example.com> for ACME/Let's Encrypt.
+{$CADDY_HTTPS_SITE:kit.localhost} {
+	tls {$CADDY_TLS_MODE:internal}
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+	}
+
+	import common_site
+}

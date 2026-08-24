@@ -1,0 +1,161 @@
+{
+    "success": true,
+    "result": [
+        {
+            "id": 11953355,
+            "user_id": 1219,
+            "status": "DIALING",
+            "status_start_date": "2026-07-14 04:57:55",
+            "status_end_date": "2026-07-14 04:58:00",
+            "next_status": "IN_SERVICE",
+            "changed_by": null,
+            "duration": 5
+        },
+        {
+            "id": 11953354,
+            "user_id": 1219,
+            "status": "READY",
+            "status_start_date": "2026-07-14 04:57:55",
+            "status_end_date": "2026-07-14 04:57:55",
+            "next_status": "DIALING",
+            "changed_by": 1219,
+            "duration": 0
+        },
+        {
+            "id": 11953014,
+            "user_id": 1219,
+            "status": "CUSTOM_2",
+            "status_start_date": "2026-07-14 04:52:47",
+            "status_end_date": "2026-07-14 04:57:55",
+            "next_status": "READY",
+            "changed_by": 1219,
+            "duration": 308
+        },
+        {
+            "id": 11952895,
+            "user_id": 1219,
+            "status": "AFTER_SERVICE",
+            "status_start_date": "2026-07-14 04:50:47",
+            "status_end_date": "2026-07-14 04:52:47",
+            "next_status": "CUSTOM_2",
+            "changed_by": null,
+            "duration": 120
+        },
+        {
+            "id": 11952880,
+            "user_id": 1219,
+            "status": "IN_SERVICE",
+            "status_start_date": "2026-07-14 04:50:25",
+            "status_end_date": "2026-07-14 04:50:47",
+            "next_status": "AFTER_SERVICE",
+            "changed_by": null,
+            "duration": 22
+        },
+        {
+            "id": 11952874,
+            "user_id": 1219,
+            "status": "DIALING",
+            "status_start_date": "2026-07-14 04:50:20",
+            "status_end_date": "2026-07-14 04:50:25",
+            "next_status": "IN_SERVICE",
+            "changed_by": null,
+            "duration": 5
+        },
+        {
+            "id": 11952873,
+            "user_id": 1219,
+            "status": "READY",
+            "status_start_date": "2026-07-14 04:50:20",
+            "status_end_date": "2026-07-14 04:50:20",
+            "next_status": "DIALING",
+            "changed_by": 1219,
+            "duration": 0
+        },
+        {
+            "id": 11952778,
+            "user_id": 1219,
+            "status": "AFTER_SERVICE",
+            "status_start_date": "2026-07-14 04:48:20",
+            "status_end_date": "2026-07-14 04:50:20",
+            "next_status": "READY",
+            "changed_by": null,
+            "duration": 120
+        },
+        {
+            "id": 11952740,
+            "user_id": 1219,
+            "status": "IN_SERVICE",
+            "status_start_date": "2026-07-14 04:47:36",
+            "status_end_date": "2026-07-14 04:48:20",
+            "next_status": "AFTER_SERVICE",
+            "changed_by": null,
+            "duration": 44
+        },
+        {
+            "id": 11952727,
+            "user_id": 1219,
+            "status": "DIALING",
+            "status_start_date": "2026-07-14 04:47:28",
+            "status_end_date": "2026-07-14 04:47:36",
+            "next_status": "IN_SERVICE",
+            "changed_by": null,
+            "duration": 8
+        },
+        {
+            "id": 11952677,
+            "user_id": 1219,
+            "status": "READY",
+            "status_start_date": "2026-07-14 04:46:21",
+            "status_end_date": "2026-07-14 04:47:28",
+            "next_status": "DIALING",
+            "changed_by": null,
+            "duration": 67
+        },
+        {
+            "id": 11952668,
+            "user_id": 1219,
+            "status": "DIALING",
+            "status_start_date": "2026-07-14 04:46:09",
+            "status_end_date": "2026-07-14 04:46:21",
+            "next_status": "READY",
+            "changed_by": null,
+            "duration": 12
+        },
+        {
+            "id": 11952641,
+            "user_id": 1219,
+            "status": "READY",
+            "status_start_date": "2026-07-14 04:45:43",
+            "status_end_date": "2026-07-14 04:46:09",
+            "next_status": "DIALING",
+            "changed_by": 1219,
+            "duration": 26
+        },
+        {
+            "id": 11950803,
+            "user_id": 1219,
+            "status": "ONLINE",
+            "status_start_date": "2026-07-14 04:09:00",
+            "status_end_date": "2026-07-14 04:45:43",
+            "next_status": "READY",
+            "changed_by": 1219,
+            "duration": 2203
+        },
+        {
+            "id": 11950802,
+            "user_id": 1219,
+            "status": "OFFLINE",
+            "status_start_date": "2026-07-14 04:09:00",
+            "status_end_date": "2026-07-14 04:09:00",
+            "next_status": "ONLINE",
+            "changed_by": 1219,
+            "duration": 0
+        }
+    ],
+    "_meta": {
+        "totalCount": 65,
+        "pageCount": 2,
+        "currentPage": 2,
+        "perPage": 50
+    }
+}
