@@ -3,11 +3,11 @@ name: kit-operator-statuses
 services:
   frontend:
     build:
-      context: .
+      context: ../..
       dockerfile: apps/frontend/Dockerfile
     restart: unless-stopped
     env_file:
-      - .env
+      - ../../.env
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:80"]
       interval: 30s
@@ -21,11 +21,11 @@ services:
 
   backend:
     build:
-      context: .
+      context: ../..
       dockerfile: apps/backend/Dockerfile
     restart: unless-stopped
     env_file:
-      - .env
+      - ../../.env
     depends_on:
       postgres:
         condition: service_healthy
@@ -46,7 +46,7 @@ services:
     image: postgres:18-alpine
     restart: unless-stopped
     env_file:
-      - .env
+      - ../../.env
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USER}

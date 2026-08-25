@@ -1,8 +1,14 @@
 :80 {
-	root * /usr/share/caddy
 	encode zstd gzip
 
-	# Serve static assets directly; fallback to index.html for SPA routes.
-	try_files {path} {path}/ /index.html
-	file_server
+	@api path /api/* /health/* /docs /docs/*
+	handle @api {
+		reverse_proxy backend:3000
+	}
+
+	handle {
+		root * /usr/share/caddy
+		try_files {path} {path}/ /index.html
+		file_server
+	}
 }

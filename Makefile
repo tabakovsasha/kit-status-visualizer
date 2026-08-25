@@ -3,13 +3,13 @@ SHELL := /bin/bash
 init:
 	chmod +x scripts/init-secrets.sh && ./scripts/init-secrets.sh
 
-dev:
+dev: init
 	docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 
-build:
+build: init
 	docker compose build
 
-up:
+up: init
 	docker compose up -d --build
 
 down:

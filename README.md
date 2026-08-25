@@ -1,242 +1,161 @@
 # Kit Operator Statuses
 
-Production-oriented monorepo for Voximplant Kit operator status analytics:
-- secure local user authentication,
-- encrypted Voximplant credentials storage,
-- catalog snapshots (queues/groups/operators/status types),
-- timeline query API,
-- tenant isolation by owner user.
+Приложение для аналитики статусов операторов Voximplant Kit: frontend, backend, PostgreSQL, Redis и Caddy в production-архитектуре с отдельной VM для reverse proxy.
 
-## Architecture
+## Что в проекте
 
 - Frontend: React + Vite + TypeScript
 - Backend: NestJS + TypeScript + Prisma
-- Database: PostgreSQL
-- Cache/infra: Redis
-- Edge proxy: Caddy
-- Orchestration: Docker Compose
+- База данных: PostgreSQL
+- Кеш: Redis
+- Reverse proxy: Caddy
+- Docker Compose для локального запуска и production-развёртывания
 
-Detailed design docs:
-- `docs/architecture.md`
-- `docs/api-analysis.md`
-- `docs/security.md`
-- `docs/status-timeline-rules.md`
-- `docs/development-plan.md`
+## Основная архитектура
 
-## Requirements
-
-- Docker + Docker Compose
-- Node.js (local tooling)
-- OpenSSL (for secret generation script)
-
-## Quick start (local)
-
-1. Initialize `.env` and secrets:
-```bash
-make init
+```text
+Internet
+   |
+   | 80/443
+   v
+External Caddy VM
+   |
+   | private LAN / HTTP
+   v
+Application VM
+   |
+   v
+frontend/internal gateway :8080
+   |
+   +--> /            -> frontend
+   +--> /api/*      -> backend:3000
+   +--> /health/*   -> backend:3000
+   +--> /docs*      -> backend:3000
 ```
 
-2. Start stack:
+Смысл такой:
+- публичный вход только на отдельной Caddy VM
+- приложение на другой VM не открывает 80/443 в интернет
+- внутри VM используется приватная Docker-сеть
+- внешний Caddy обращается к приложению по приватному IP и одному ingress-порту
+
+## Локальный запуск
+
+1. Скопируйте пример env:
 ```bash
-make up
+cp .env.example .env
 ```
 
-3. Check logs:
+2. Запустите приложение:
 ```bash
-make logs
+docker compose up -d --build
 ```
 
-4. Stop stack:
+3. Проверьте состояние:
 ```bash
-make down
+docker compose ps
 ```
 
-## Development mode
-
+4. Остановите:
 ```bash
-make dev
+docker compose down
 ```
 
-## Environment setup
+## Production
 
-Use `.env.example` as baseline. Important variables:
-- `JWT_ACCESS_SECRET`
-- `JWT_REFRESH_SECRET`
-- `TOKEN_ENCRYPTION_KEY`
-- `ADMIN_API_KEY`
-- `DATABASE_PASSWORD`
-- `BOOTSTRAP_USER_LOGIN`
-- `BOOTSTRAP_USER_PASSWORD`
-- `BOOTSTRAP_USER_ACTIVE`
-
-For local manual API smoke tests only:
-- `VOXIMPLANT_TEST_DOMAIN`
-- `VOXIMPLANT_TEST_HOST`
-- `VOXIMPLANT_TEST_ACCESS_TOKEN`
-
-Do not commit real tokens/secrets.
-
-## Secret generation
-
-Idempotent script:
+### 1. Application VM
+Используется compose-файл:
 ```bash
-./scripts/init-secrets.sh
+deploy/application-vm/docker-compose.production.yml
 ```
 
-Behavior:
-- creates `.env` from `.env.example` if missing,
-- generates missing secrets only,
-- keeps existing non-empty values unchanged,
-- sets secure file permissions (`600`),
-- does not print secrets.
+Он запускает:
+- frontend на порту `localhost:8080`
+- backend внутри Docker-сети `app`
+- PostgreSQL и Redis внутри сети `data`
 
-## Migrations
-
-Generate Prisma client:
+### 2. Внешний Caddy VM
+Пример конфигурации находится здесь:
 ```bash
-npm run -w backend prisma:generate
+deploy/external-caddy-example/Caddyfile
 ```
 
-Apply migrations:
-```bash
-make migrate
+Пример:
+```caddy
+{
+    email admin@example.com
+}
+
+kit.example.com {
+    reverse_proxy localhost:8080
+}
 ```
 
-Seed bootstrap user:
+Это означает:
+- браузер идёт на `https://kit.example.com`
+- Caddy VM принимает TLS и проксирует запрос в application VM по private LAN
+- приложение не знает о публичном интернете напрямую
+
+## Переменные окружения
+
+Основные значения для production:
 ```bash
-make seed
+HOST_BIND_IP=127.0.0.1
+HOST_HTTP_PORT=8080
+PUBLIC_APP_URL=https://kit.example.com
+PUBLIC_API_URL=https://kit.example.com/api
+CORS_ORIGIN=https://kit.example.com
 ```
 
-## User management
-
-### Bootstrap user
-Defined by ENV:
-- `BOOTSTRAP_USER_LOGIN`
-- `BOOTSTRAP_USER_PASSWORD`
-- `BOOTSTRAP_USER_ACTIVE`
-
-Synchronized on backend startup.
-
-### Admin API user operations
-Internal endpoint set:
-- `GET /api/admin/users`
-- `POST /api/admin/users`
-- `PATCH /api/admin/users/:id/status`
-- `PATCH /api/admin/users/:id/password`
-
-Requires `X-Admin-Api-Key` header with `ADMIN_API_KEY`.
-
-## Caddy setup
-
-Caddy is the only external ingress in compose:
-- frontend via `/`
-- backend via `/api/*` and `/health/*`
-
-Config file:
-- `infrastructure/caddy/Caddyfile`
-
-## Production HTTPS deployment
-
-Before first production deploy, set domain/TLS variables in `.env`:
-
+Пример production env находится в:
 ```bash
-NODE_ENV=production
-PUBLIC_APP_URL=https://your.domain.tld
-PUBLIC_API_URL=https://your.domain.tld/api
-CORS_ORIGIN=https://your.domain.tld
-
-CADDY_HTTP_SITE=:80
-CADDY_HTTPS_SITE=your.domain.tld
-CADDY_REDIRECT_HOST=your.domain.tld
-CADDY_TLS_SERVER_NAME=your.domain.tld
-# Production ACME mode (Let's Encrypt):
-CADDY_TLS_MODE=admin@your.domain.tld
-
-REFRESH_COOKIE_SECURE=true
-REFRESH_COOKIE_SAMESITE=lax
+deploy/application-vm/.env.production.example
 ```
 
-Notes:
-- For local/LAN only, use `CADDY_TLS_MODE=internal`.
-- Keep backend/postgres/redis unpublished externally; only Caddy should expose ports 80/443.
+## Безопасность
 
-### Deploy sequence
+- только внешний Caddy VM открыт на `80` и `443`
+- application VM не должен принимать входящий трафик из интернета
+- PostgreSQL и Redis не публикуются на host-порты
+- внутренние сети Docker остаются приватными
 
-1. Validate compose and Caddy config:
+## Полезные команды
+
+Проверить compose:
 ```bash
 docker compose config
-docker run --rm -v "$(pwd)/infrastructure/caddy/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2.10 caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
 ```
 
-2. Start stack:
+Проверить ingress на application VM:
 ```bash
-make up
+ss -lntp | grep 8080
+curl -I http://localhost:8080
+curl http://localhost:8080/api/health/live
 ```
 
-3. Watch Caddy logs until certificate is issued:
+Проверить health backend:
 ```bash
-docker compose logs -f caddy
+curl http://localhost:3000/health/live
 ```
 
-### Post-deploy checks (HTTPS, redirect, cert)
+## Ссылки на дополнительную документацию
 
-Replace `your.domain.tld` with real domain:
+- docs/architecture.md
+- docs/security.md
+- docs/api-analysis.md
+- docs/development-plan.md
 
-```bash
-curl -I http://your.domain.tld
-curl -I https://your.domain.tld
-curl -I https://your.domain.tld/health/live
-curl -I https://your.domain.tld/api/health/live
-openssl s_client -connect your.domain.tld:443 -servername your.domain.tld </dev/null 2>/dev/null | openssl x509 -noout -issuer -subject -dates
-```
+## Разработка
 
-Expected:
-- HTTP returns `301` or `308` redirect to `https://your.domain.tld/...`
-- HTTPS endpoints return `200` for live health checks
-- Certificate issuer and validity dates are present and correct
+Для локальной разработки можно использовать обычный stack проекта и `.env` на основе `.env.example`.
 
-### DNS and network prerequisites
+Для production важно не смешивать:
+- внешний Caddy VM
+- приложение внутри другой VM
+- Docker networks между разными машинами
 
-- A/AAAA record for domain points to the server
-- inbound `80/tcp` and `443/tcp` are open
-- no other ingress/reverse proxy binds the same ports
+Именно эта схема позволяет безопасно запускать несколько проектов на одном сервере и не открывать лишние порты наружу.
 
-### Rollback (TLS issues)
-
-1. Revert only Caddy-related env vars/config to last known good values.
-2. Restart edge service:
-```bash
-docker compose up -d --no-deps --build caddy
-```
-3. Re-check logs and health endpoints.
-
-## Tests
-
-Run all workspace tests:
-```bash
-make test
-```
-
-Run backend e2e:
-```bash
-make e2e
-```
-
-Run lint:
-```bash
-make lint
-```
-
-## Backup and restore (PostgreSQL)
-
-Backup:
-```bash
-docker compose exec postgres pg_dump -U "$DATABASE_USER" "$DATABASE_NAME" > backup.sql
-```
-
-Restore:
-```bash
-cat backup.sql | docker compose exec -T postgres psql -U "$DATABASE_USER" "$DATABASE_NAME"
 ```
 
 ## Key rotation
