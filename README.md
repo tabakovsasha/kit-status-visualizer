@@ -2,6 +2,58 @@
 
 Приложение для аналитики статусов операторов Voximplant Kit: frontend, backend, PostgreSQL, Redis и Caddy в production-архитектуре с отдельной VM для reverse proxy.
 
+## Краткий запуск сервиса
+
+### 1. Создайте `.env`
+
+Создайте файл из примера:
+
+```bash
+cp .env.example .env
+```
+
+### 2. Настройте окружение
+
+Укажите в `.env` приватный IP application VM и публичный домен:
+
+```dotenv
+HOST_BIND_IP=192.168.50.111
+HOST_HTTP_PORT=8080
+PUBLIC_APP_URL=https://kit-status-visualizer2.digital-universe.xyz
+PUBLIC_API_URL=https://kit-status-visualizer2.digital-universe.xyz/api
+CORS_ORIGIN=https://kit-status-visualizer2.digital-universe.xyz
+```
+
+`HOST_BIND_IP` должен существовать на сетевом интерфейсе машины, где запускается Docker. Для текущего запуска на Mac это `192.168.50.39`; на Alpine VM укажите фактический приватный IP этой VM.
+
+### 3. Запустите сервис
+
+```bash
+make up
+```
+
+`make up` автоматически:
+
+- создаст и заполнит недостающие секреты в `.env`;
+- синхронизирует `DATABASE_URL` с параметрами PostgreSQL;
+- соберёт Docker-образы;
+- запустит frontend, backend, PostgreSQL и Redis.
+
+После запуска сервис ожидает HTTP-подключения на `${HOST_BIND_IP}:8080`. Проверка:
+
+```bash
+docker compose ps
+curl http://192.168.50.111:8080/health/live
+```
+
+Ожидаемый ответ:
+
+```json
+{"status":"ok"}
+```
+
+Backend работает на `3000` только внутри Docker-сети и не публикуется на хост. Внешний Caddy должен подключаться к application VM на порт `8080`, а не `3000`.
+
 ## Что в проекте
 
 - Frontend: React + Vite + TypeScript
@@ -34,80 +86,96 @@ frontend/internal gateway :8080
 ```
 
 Смысл такой:
+
 - публичный вход только на отдельной Caddy VM
 - приложение на другой VM не открывает 80/443 в интернет
 - внутри VM используется приватная Docker-сеть
 - внешний Caddy обращается к приложению по приватному IP и одному ingress-порту
 
-## Локальный запуск
+## Запуск на Alpine Linux
 
-1. Скопируйте пример env:
+Установите необходимые пакеты и запустите Docker:
+
 ```bash
+apk update
+apk add bash docker docker-cli-compose git make openssl
+rc-update add docker default
+rc-service docker start
+```
+
+Затем клонируйте проект и выполните краткую инструкцию запуска выше:
+
+```bash
+git clone <REPOSITORY_URL>
+cd kit-status-visualizer-master
 cp .env.example .env
+# Отредактируйте HOST_BIND_IP и публичные URL в .env
+make up
 ```
 
-2. Запустите приложение:
-```bash
-docker compose up -d --build
-```
+Полезные команды:
 
-3. Проверьте состояние:
 ```bash
-docker compose ps
-```
-
-4. Остановите:
-```bash
-docker compose down
+make logs
+make down
 ```
 
 ## Production
 
 ### 1. Application VM
+
 Используется compose-файл:
+
 ```bash
 deploy/application-vm/docker-compose.production.yml
 ```
 
 Он запускает:
-- frontend на порту `localhost:8080`
+
+- frontend gateway на `${HOST_BIND_IP}:8080`
 - backend внутри Docker-сети `app`
 - PostgreSQL и Redis внутри сети `data`
 
 ### 2. Внешний Caddy VM
+
 Пример конфигурации находится здесь:
+
 ```bash
 deploy/external-caddy-example/Caddyfile
 ```
 
 Пример:
+
 ```caddy
 {
     email admin@example.com
 }
 
-kit.example.com {
-    reverse_proxy localhost:8080
+kit-status-visualizer2.digital-universe.xyz {
+  reverse_proxy 192.168.50.111:8080
 }
 ```
 
 Это означает:
-- браузер идёт на `https://kit.example.com`
+
+- браузер идёт на `https://kit-status-visualizer2.digital-universe.xyz`
 - Caddy VM принимает TLS и проксирует запрос в application VM по private LAN
 - приложение не знает о публичном интернете напрямую
 
 ## Переменные окружения
 
 Основные значения для production:
-```bash
-HOST_BIND_IP=127.0.0.1
+
+```dotenv
+HOST_BIND_IP=192.168.50.111
 HOST_HTTP_PORT=8080
-PUBLIC_APP_URL=https://kit.example.com
-PUBLIC_API_URL=https://kit.example.com/api
-CORS_ORIGIN=https://kit.example.com
+PUBLIC_APP_URL=https://kit-status-visualizer2.digital-universe.xyz
+PUBLIC_API_URL=https://kit-status-visualizer2.digital-universe.xyz/api
+CORS_ORIGIN=https://kit-status-visualizer2.digital-universe.xyz
 ```
 
 Пример production env находится в:
+
 ```bash
 deploy/application-vm/.env.production.example
 ```
@@ -122,20 +190,23 @@ deploy/application-vm/.env.production.example
 ## Полезные команды
 
 Проверить compose:
+
 ```bash
 docker compose config
 ```
 
 Проверить ingress на application VM:
+
 ```bash
 ss -lntp | grep 8080
-curl -I http://localhost:8080
-curl http://localhost:8080/api/health/live
+curl -I http://192.168.50.111:8080
+curl http://192.168.50.111:8080/health/live
 ```
 
-Проверить health backend:
+Проверить backend внутри контейнера:
+
 ```bash
-curl http://localhost:3000/health/live
+docker compose exec backend wget -qO- http://localhost:3000/health/live
 ```
 
 ## Ссылки на дополнительную документацию
@@ -150,26 +221,29 @@ curl http://localhost:3000/health/live
 Для локальной разработки можно использовать обычный stack проекта и `.env` на основе `.env.example`.
 
 Для production важно не смешивать:
+
 - внешний Caddy VM
 - приложение внутри другой VM
 - Docker networks между разными машинами
 
 Именно эта схема позволяет безопасно запускать несколько проектов на одном сервере и не открывать лишние порты наружу.
 
-```
-
 ## Key rotation
 
 ### TOKEN_ENCRYPTION_KEY
+
 Current implementation stores `keyVersion` with encrypted records.
 Recommended process:
+
 1. deploy code supporting dual-key decrypt,
 2. re-encrypt credentials with new key,
 3. switch default version,
 4. remove old key after verification.
 
 ### JWT secrets
+
 Recommended process:
+
 1. support temporary dual-verify window,
 2. rotate signing key,
 3. force refresh-token rotation,
@@ -201,6 +275,7 @@ docker compose up -d --build
 ## Timezone and first segment rules
 
 See:
+
 - `docs/status-timeline-rules.md`
 
 Current implementation includes baseline UTC normalization, gap handling, and bounded first-segment lookback restoration (6h/12h/24h/48h windows).

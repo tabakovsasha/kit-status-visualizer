@@ -1,9 +1,9 @@
 {
-    email admin@example.com
+	email admin@example.com
 }
 
-kit.example.com {
-    reverse_proxy app-vm.local:8080
+kit-status-visualizer2.digital-universe.xyz {
+	reverse_proxy 192.168.50.111:8080
 }
 
 # Example second service:
